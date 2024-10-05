@@ -18,10 +18,35 @@
   </head>
   <body>
     <h1>Squirrel Website</h1>
-    <div id="map"> </div>
-    <input type="file" id="imageInput" accept="image/*">
-    <div id="metadata"></div>
 
+    <div id="imageUploader">
+      <input type="file" id="fileInput" accept="image/*">
+      <button id="uploadImage">Upload Image</button>
+    </div>
+
+    <div id="tagsSection">
+      <h3>Select Tags</h3>
+      <label>
+          <input type="checkbox" name="tags" value="eating"> Eating
+      </label><br>
+      <label>
+          <input type="checkbox" name="tags" value="aggressive"> Aggressive
+      </label><br>
+      <label>
+          <input type="checkbox" name="tags" value="shy"> Shy
+      </label><br>
+      <label>
+          <input type="checkbox" name="tags" value="chonky"> Chonky
+      </label><br>
+    </div>
+
+    <img id="imagePreview" src="" alt="Image Preview">
+
+    <script type="module" src="./firebase.js"></script>
+    <script type="module" src="./upload.js"></script>
+
+
+    <div id="map"> </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/exif-js/2.3.0/exif.min.js" defer></script>
     
     <script src="main.js" defer></script>

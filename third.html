@@ -10,37 +10,66 @@
     		padding-top: 50px;
     		text-align: center;
     	}
+    	h3 {
+    		text-align: center;
+    	}
+    	div {
+    		display: flex; /* CSS property that creates flexible container */
+				justify-content: center;
+    	}
+    	.center {
+    		display: block;
+    		margin-left: auto;
+    		margin-right: auto;
+    		
+    	}
+    	#fileInput {
+    		
+				text-align: center; 
+    		margin: auto;
+    	}
       #map{
           height:600px;
           width:90%;
           margin: auto;
       }
       #imageUploader{
-        display: left;      
-        flex-direction: column;    
-        align-items: center;       
-        margin: 20px;  
+       
+        display: block; /* CSS property that creates flexible container */
+				justify-content: left; 
+      }
+      #tagsSection{
+       
+        display: block; /* CSS property that creates flexible container */
+				justify-content: center; 
+      }
+      #imagePreview{
+      	display: flex;
+        margin-left: auto;
+    		margin-right: auto;
       }
       #tagsSection{
         display: flex;
         flex-direction: column;
         align-items: left;
         text-align: left;
-        margin: 30px
+        margin: 60px;
       }
 
     </style>
   </head>
   <body>
-    <h1>You clicked on upload button!</h1>
+    <h1>Upload your squirrel image!</h1><br>
     
-    <div id="imageUploader">
-      <input type="file" id="fileInput" accept="image/*">
-      <button id="uploadImage">Upload Image</button>
-    </div>
+    	<div id="imageUploader" style="margin: 60px;">
+    		<input type="file" id="fileInput" accept="image/*"><br><br>
+    		<button id="uploadImage">Upload Image</button><br><br>
+   		 </div>
+
+		<img id="imagePreview" src="" alt="Image Preview" style="margin: 60px;">
 
     <div id="tagsSection">
-      <h4>Select Tags</h4>
+      <h4 style>Select Tags</h4><br>
       <label>
           <input type="checkbox" name="tags" value="eating"> Eating
       </label><br>
@@ -55,13 +84,11 @@
       </label><br>
     </div>
 
-    <img id="imagePreview" src="" alt="Image Preview">
-
     <script type="module" src="./firebase.js"></script>
     <script type="module" src="./upload.js"></script>
 
-
-    <div id="map"> </div>
+		<h3>Where did you see it on the map?</h3><br>
+    <div id="map"> </div><br><br>
     <script src="third-page.js" defer></script>
     <!-- Here we can include whatever api's need to be imported -->
     <script>
@@ -72,5 +99,7 @@
         // Add other bootstrap parameters as needed, using camel case.
       });
     </script>
+    
+    <button type="button" onclick="window.location.href='index.html';" class="center">Done</button><br><br>
   </body>
 </html>

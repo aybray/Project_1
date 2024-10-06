@@ -30,7 +30,7 @@ async function initMap(markers) {
                 title: cur[0],
                 gmpClickable: true,
             });
-            event.stopPropagation;
+           
             marker.addEventListener("mouseover", function() {
             
                 infoWindow.close();
@@ -42,7 +42,12 @@ async function initMap(markers) {
                 infoWindow.close();
             });
             //pass lat and long in this function
-            marker.addEventListener("click", myFunction);
+            marker.addEventListener("click", function() {
+            		const lat = marker.position.lat;
+    						const lng = marker.position.lng;
+								window.location.href='second.html';
+								
+            });
         };
         
         markerImg.onerror = function() {
@@ -51,11 +56,7 @@ async function initMap(markers) {
     }
 }
 
-// pass latitude and longitude here?
-function myFunction() {
-		event.stopPropagation;
-	window.location.href='second.html';
-}
+
 
 function markerfunction() {
     for(let i=0; i<markers.length; i++){

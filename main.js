@@ -4,9 +4,7 @@ let map;
 
 async function initMap(markers) {
     const { Map, InfoWindow } = await google.maps.importLibrary("maps");
-const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary(
-    "marker",
-  );
+    const { AdvancedMarkerElement} = await google.maps.importLibrary("marker");
   
     map = new Map(document.getElementById("map"), {
         center: { lat: 28.602323785256257, lng: -81.2004139516097 },
@@ -18,7 +16,6 @@ const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary(
         const cur=markers[i];
         // A marker with a with a URL pointing to a PNG.
 
-    
         const markerImg = document.createElement("img");
 
         markerImg.src =cur[3];
@@ -53,7 +50,6 @@ const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary(
         };
     }
 }
-
 
 // pass latitude and longitude here?
 function myFunction() {
@@ -104,6 +100,7 @@ function markerfunction() {
         });*/
     }
 }
+
 markers=[
     ["Squirrel 1",
         28.60232378525625,

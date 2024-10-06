@@ -4,9 +4,7 @@ let map;
 
 async function initMap(markers) {
     const { Map, InfoWindow } = await google.maps.importLibrary("maps");
-const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary(
-    "marker",
-  );
+    const { AdvancedMarkerElement} = await google.maps.importLibrary("marker");
   
     map = new Map(document.getElementById("map"), {
         center: { lat: 28.602323785256257, lng: -81.2004139516097 },
@@ -18,7 +16,6 @@ const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary(
         const cur=markers[i];
         // A marker with a with a URL pointing to a PNG.
 
-    
         const markerImg = document.createElement("img");
 
         markerImg.src =cur[3];
@@ -47,50 +44,6 @@ const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary(
         };
         // Add a click listener for each marker, and set up the info window.
        
-    }
-}
-  
-function markerfunction() {
-    for(let i=0; i<markers.length; i++){
-        const cur=markers[i];
-        // A marker with a with a URL pointing to a PNG.
-
-    
-        const beachFlagImg = document.createElement("img");
-
-        beachFlagImg.src ="https://static.vecteezy.com/system/resources/previews/027/249/118/original/squirrel-natural-with-a-kawaii-face-cute-cartoon-ai-generate-png.png";
-        beachFlagImg.onload = function() {
-            console.log("Image loaded successfully.");
-        };
-        
-        beachFlagImg.onerror = function() {
-            console.error("Error loading image:", beachFlagImg.src);
-        };
-        const beachFlagMarkerView = new AdvancedMarkerElement({
-        map,
-        position: { lat: cur[1], lng: cur[2] },
-        content: beachFlagImg,
-        title: "A marker using a custom PNG Image",
-        });
-        //
-        /*const image ={
-            url: cur[3],
-            scaledSize: new google.maps.Size(50, 50)
-        }
-        const marker = new google.maps.Marker({
-            map,
-            position: { lat: cur[1], lng: cur[2] },
-            icon:image,
-            title: cur[0],
-            animation:google.maps.Animation.DROP
-        });
-        const infowindow=new google.maps.InfoWindow({
-            content: cur[0]
-        });
-
-        marker.addListener('click', () => {
-            infowindow.open(map, marker);
-        });*/
     }
 }
 markers=[

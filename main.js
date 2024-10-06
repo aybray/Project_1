@@ -33,23 +33,34 @@ const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary(
                 title: cur[0],
                 gmpClickable: true,
             });
-            marker.addListener("click", ({ domEvent, latLng }) => {
-                const { target } = domEvent;
+            event.stopPropagation;
+            marker.addEventListener("mouseover", function() {
             
                 infoWindow.close();
                 infoWindow.setContent(marker.title);
                 infoWindow.open(marker.map, marker);
             });
+             marker.addEventListener("mouseout", function() {
+            
+                infoWindow.close();
+            });
+            //pass lat and long in this function
+            marker.addEventListener("click", myFunction);
         };
         
         markerImg.onerror = function() {
             console.error("Error loading image:", markerImg.src);
         };
-        // Add a click listener for each marker, and set up the info window.
-       
     }
 }
-  
+
+
+// pass latitude and longitude here?
+function myFunction() {
+		event.stopPropagation;
+	window.location.href='second.html';
+}
+
 function markerfunction() {
     for(let i=0; i<markers.length; i++){
         const cur=markers[i];

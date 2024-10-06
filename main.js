@@ -56,12 +56,6 @@ async function initMap(markers) {
     }
 }
 
-// pass latitude and longitude here?
-function myFunction() {
-		//event.stopPropagation;
-	window.location.href='second.html';
-}
-
 function markerfunction() {
     for(let i=0; i<markers.length; i++){
         const cur=markers[i];

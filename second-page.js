@@ -6,4 +6,4 @@ window.onload = function() {
     // Display the value on the page
     var output = document.getElementById('value-output');
     output.innerText = mylat;
-    };
+};

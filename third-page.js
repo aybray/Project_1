@@ -4,12 +4,14 @@ import { storage, firestore } from './firebase.js';
 import { ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-storage.js";
 import { collection, addDoc } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js";
 
+let markerPosition = null;
+
 async function uploadImage() {
     const fileInput = document.getElementById("fileInput");
     const file = fileInput.files[0]
     const tags = getSelectedTags();
 
-    if(file){
+    if(file && markerPosition){
       const storageRef = ref(storage, `uploaded_images/${file.name}`);
       await uploadBytes(storageRef, file);
 
@@ -17,12 +19,11 @@ async function uploadImage() {
       const imagePreview = document.getElementById("imagePreview");
       imagePreview.src = imageURL; 
 
-      //get marker position
-
       await addDoc(collection(firestore, 'images'), {
         url: imageURL,
         tags: tags,
-        //location: markerPosition,
+        latitude: markerPosition.lat,
+        longitude: markerPosition.lng,
         timestamp: new Date()
       })
     }
@@ -58,10 +59,9 @@ async function initMap() {
     });
   
     draggableMarker.addListener("dragend", (event) => {
-      const position = draggableMarker.position;
-  
+      markerPosition = draggableMarker.position;
       infoWindow.close();
-      infoWindow.setContent(`Pin dropped at: ${position.lat}, ${position.lng}`);
+      infoWindow.setContent(`Pin dropped at: ${markerPosition.lat}, ${markerPosition.lng}`);
       infoWindow.open(draggableMarker.map, draggableMarker);
     });
   }

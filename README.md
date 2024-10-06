@@ -1,6 +1,4 @@
-# Project_1 :)
-<img width="755" alt="Screenshot 2024-10-05 at 11 28 29 PM" src="https://github.com/user-attachments/assets/5092eb50-9206-4e67-8597-824a5068f492">
-## File structure
-- index.html - main page (uses main.js)
-- second.html - for when you click on map pin (uses second-page.js)
-- third.html - for when you are uploading a file (uses third-page.js)
+# Squirrel Spotter
+GitHub Repository for our Squirrel Spotter (Knight Hacks 2024 Hackathon). Although the webpage is currently a work-in-progress, our goal is to create an app that allows users to input the locations of squirrels found on campus.<br>
+To demo our project, download the repository and open **index.html** it on **localhost**.<br>
+A huge thank you to the Knight Hacks organizers for an amazing time!

@@ -30,22 +30,77 @@ async function initMap(markers) {
                 title: cur[0],
                 gmpClickable: true,
             });
-            marker.addListener("click", ({ domEvent, latLng }) => {
-                const { target } = domEvent;
+            event.stopPropagation;
+            marker.addEventListener("mouseover", function() {
             
                 infoWindow.close();
                 infoWindow.setContent(marker.title);
                 infoWindow.open(marker.map, marker);
             });
+             marker.addEventListener("mouseout", function() {
+            
+                infoWindow.close();
+            });
+            //pass lat and long in this function
+            marker.addEventListener("click", myFunction);
         };
         
         markerImg.onerror = function() {
             console.error("Error loading image:", markerImg.src);
         };
-        // Add a click listener for each marker, and set up the info window.
-       
     }
 }
+
+// pass latitude and longitude here?
+function myFunction() {
+		event.stopPropagation;
+	window.location.href='second.html';
+}
+
+function markerfunction() {
+    for(let i=0; i<markers.length; i++){
+        const cur=markers[i];
+        // A marker with a with a URL pointing to a PNG.
+
+    
+        const beachFlagImg = document.createElement("img");
+
+        beachFlagImg.src ="https://static.vecteezy.com/system/resources/previews/027/249/118/original/squirrel-natural-with-a-kawaii-face-cute-cartoon-ai-generate-png.png";
+        beachFlagImg.onload = function() {
+            console.log("Image loaded successfully.");
+        };
+        
+        beachFlagImg.onerror = function() {
+            console.error("Error loading image:", beachFlagImg.src);
+        };
+        const beachFlagMarkerView = new AdvancedMarkerElement({
+        map,
+        position: { lat: cur[1], lng: cur[2] },
+        content: beachFlagImg,
+        title: "A marker using a custom PNG Image",
+        });
+        //
+        /*const image ={
+            url: cur[3],
+            scaledSize: new google.maps.Size(50, 50)
+        }
+        const marker = new google.maps.Marker({
+            map,
+            position: { lat: cur[1], lng: cur[2] },
+            icon:image,
+            title: cur[0],
+            animation:google.maps.Animation.DROP
+        });
+        const infowindow=new google.maps.InfoWindow({
+            content: cur[0]
+        });
+
+        marker.addListener('click', () => {
+            infowindow.open(map, marker);
+        });*/
+    }
+}
+
 markers=[
     ["Squirrel 1",
         28.60232378525625,

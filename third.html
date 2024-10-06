@@ -15,10 +15,51 @@
           width:90%;
           margin: auto;
       }
+      #imageUploader{
+        display: flex;      
+        flex-direction: column;    
+        align-items: center;       
+        margin: 20px;  
+      }
+      #tagsSection{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: left;
+      }
+
     </style>
   </head>
   <body>
     <h1>You clicked on upload button!</h1>
+    
+    <div id="imageUploader">
+      <input type="file" id="fileInput" accept="image/*">
+      <button id="uploadImage">Upload Image</button>
+    </div>
+
+    <div id="tagsSection">
+      <h4>Select Tags</h4>
+      <label>
+          <input type="checkbox" name="tags" value="eating"> Eating
+      </label><br>
+      <label>
+          <input type="checkbox" name="tags" value="aggressive"> Aggressive
+      </label><br>
+      <label>
+          <input type="checkbox" name="tags" value="shy"> Shy
+      </label><br>
+      <label>
+          <input type="checkbox" name="tags" value="chonky"> Chonky
+      </label><br>
+    </div>
+
+    <img id="imagePreview" src="" alt="Image Preview">
+
+    <script type="module" src="./firebase.js"></script>
+    <script type="module" src="./upload.js"></script>
+
+
     <div id="map"> </div>
     <script src="third-page.js" defer></script>
     <!-- Here we can include whatever api's need to be imported -->
